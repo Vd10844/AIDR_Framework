@@ -1,0 +1,4 @@
+model:
+  name: "PP-StructureV2"
+  provider: "paddleocr"
+  keys: ["lotno", "model", "elevation", "garage_swing"]

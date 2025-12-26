@@ -1,0 +1,17 @@
+openapi: 3.0.0
+info:
+  title: AIDR Document Extraction API
+  version: 1.0.0
+paths:
+  /extract:
+    post:
+      summary: Extract KVPs from civil engineering forms
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
