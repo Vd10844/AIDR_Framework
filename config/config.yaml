@@ -1,4 +1,12 @@
 model:
   name: "PP-StructureV2"
   provider: "paddleocr"
-  keys: ["lotno", "model", "elevation", "garage_swing"]
+  keys:
+    - lot_no
+    - block
+    - address
+    - model_selected
+    - elevation
+    - garage_swing
+    - external_structure
+    - optional_notes

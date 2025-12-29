@@ -1,7 +1,12 @@
 # AIDR - Document Extraction Service
 
 ## Quick Start
-make install && make run
+
+make install  ## install dependencies
+
+make run ## run server
+
+## Test Extraction
 curl -X POST -F "file=@orderform.pdf" http://localhost:8000/extract
 
 
