@@ -11,4 +11,8 @@ class ExtractionResult:
 class ModelInterface(ABC):
     @abstractmethod
     async def extract(self, images: List[bytes], keys: List[str]) -> ExtractionResult:
+<<<<<<< Updated upstream
         pass
+=======
+        pass
+>>>>>>> Stashed changes

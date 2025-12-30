@@ -1,11 +1,26 @@
+<<<<<<< Updated upstream
 import sys
 import os
 from pathlib import Path
 from loguru import logger
+=======
+import uuid
+from fastapi import FastAPI, UploadFile, File, HTTPException
+from api.dependencies import get_extraction_service
+from api.schemas import ExtractResponse
+from infrastructure.logging.audit_logger import AuditLogger
 
-# Fix Python path
-sys.path.insert(0, str(Path(__file__).parent.parent))
+app = FastAPI(title="AIDR Framework v2")
+audit = AuditLogger()
 
+>>>>>>> Stashed changes
+
+@app.post("/extract", response_model=ExtractResponse)
+async def extract(file: UploadFile = File(...)):
+    request_id = str(uuid.uuid4())
+    service = get_extraction_service()
+
+<<<<<<< Updated upstream
 from fastapi import FastAPI, File, UploadFile, HTTPException
 from typing import Dict
 from src.core.pipeline import DocumentPipeline
@@ -55,3 +70,21 @@ async def extract_kvps(file: UploadFile = File(...)):
     except Exception as e:
         logger.exception("API extraction error")
         raise HTTPException(status_code=500, detail=str(e))
+=======
+    content = await file.read()
+    if not content:
+        raise HTTPException(400, "Empty file")
+
+    audit.log(request_id=request_id, event="RECEIVED", data={"file": file.filename})
+    result = await service.extract_document(content, file.filename, request_id)
+    audit.log(request_id=request_id, event="COMPLETED", data={"status": result.status})
+
+    return {
+        "request_id": request_id,
+        "status": result.status,
+        "kvps": result.kvps,
+        "confidences": result.confidences,
+        "model_version": result.model_version,
+        "processing_ms": result.processing_ms
+    }
+>>>>>>> Stashed changes
