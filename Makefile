@@ -10,10 +10,10 @@ run:
 	uvicorn api.main:app --reload
 
 deploy:
-	docker-compose up --build -d
+	docker-compose up --build -d 
 
 logs:
-	docker-compose logs -f
+	docker-compose logs -f 
 
 clean:
 	docker-compose down -v

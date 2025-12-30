@@ -12,3 +12,5 @@ class ModelInterface(ABC):
     @abstractmethod
     async def extract(self, images: List[bytes], keys: List[str]) -> ExtractionResult:
         pass
+        
+    
