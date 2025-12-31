@@ -1,0 +1,38 @@
+model:
+  name: "PP-StructureV2"
+  provider: "paddleocr"
+  keys:
+    lot_no:
+      - lot_no
+      - lot no
+      - lot number
+      - homesite
+      - home site
+    block:
+      - block
+      - blk
+    address:
+      - address
+      - addr
+      - property address
+    model_selected:
+      - model_selected
+      - model selected
+      - model
+      - plan
+    elevation:
+      - elevation
+      - elev
+    garage_swing:
+      - garage_swing
+      - garage swing
+      - swing
+    external_structure:
+      - external_structure
+      - external structure
+      - structure
+    optional_notes:
+      - optional_notes
+      - optional notes
+      - notes
+      - remarks
