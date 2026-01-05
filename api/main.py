@@ -14,6 +14,11 @@ app = FastAPI(title="AIDR Document Extraction", version="1.0.0")
 
 pipeline = None
 
+
+@app.get("/")
+async def root():
+    return {"message": "Welcome to AIDR Document Extraction API"}
+
 @app.on_event("startup")
 async def startup_event():
     global pipeline
