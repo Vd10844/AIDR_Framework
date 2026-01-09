@@ -2,6 +2,7 @@ import sys
 import os
 from pathlib import Path
 from loguru import logger
+from prometheus_client import make_asgi_app
 
 # Fix Python path
 sys.path.insert(0, str(Path(__file__).parent.parent))
@@ -10,7 +11,9 @@ from fastapi import FastAPI, File, UploadFile, HTTPException
 from typing import Dict
 from src.core.pipeline import DocumentPipeline
 
-app = FastAPI(title="AIDR Document Extraction", version="1.0.0")
+app = FastAPI(title="AIDR Document Extraction with monitoring", version="1.0.0")
+metrics_app = make_asgi_app()
+app.mount("/metrics", metrics_app)
 
 pipeline = None
 

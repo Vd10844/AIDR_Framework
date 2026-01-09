@@ -6,7 +6,8 @@ from dataclasses import dataclass
 class ExtractionResult:
     kvps: Dict[str, str]
     confidences: Dict[str, float]
-    status: str  # approved | review
+    status: str  # approved | review | rejected
+    metadata: Dict[str, Any] = None
 
 class ModelInterface(ABC):
     @abstractmethod

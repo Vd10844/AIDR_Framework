@@ -1,5 +1,5 @@
 model:
-  name: "PP-StructureV2"
+  name: "PP-StructureV3"
   provider: "paddleocr"
   keys:
     - lot_no

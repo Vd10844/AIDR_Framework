@@ -9,3 +9,4 @@ loguru==0.7.2
 paddleocr==2.6.1
 paddlepaddle==2.6.1
 numpy==1.23.5
+prometheus-client
